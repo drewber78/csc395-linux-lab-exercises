@@ -3,4 +3,9 @@ all:
     az-workstation:
       ansible_host: localhost
       ansible_connection: local
+  children:
+    ansible-lab:
+      hosts:
+        ansible-controller:
+          ansible_host: 
       
