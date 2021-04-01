@@ -1,3 +1,4 @@
+---
 - name: Configure Ansible Controller
   hosts: ansible-lab-controller
   tasks: 
@@ -8,6 +9,7 @@
       - ansible
       - git
       state: latest
+
 - name: Universal host configuration
   hosts: ansible_lab_hosts
   vars:
