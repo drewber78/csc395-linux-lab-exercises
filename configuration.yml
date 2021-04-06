@@ -26,12 +26,30 @@
   vars:
     ansible_become: true
   tasks:
-  - name: Disable existing DNS
-    ansible.builtin.service:
-      name: systemd-resolved
-      state: stopped
   - name: Install dnsmasq
     ansible.builtin.package:
       name: dnsmasq
       state: latest
+  - name: Set local hostname
+    ansible.builtin.lineinfile:
+      path: /etc/hosts
+      regexp: '^10\.1\.2\.4'
+      line: '10.1.2.4 localhost {{ ansible_hostname }}'
+  - name: Disable existing DNS
+    ansible.builtin.service:
+      name: systemd-resolved
+      enabled: no
+      state: stopped
+  - name: Set dnsmasq configuration file
+    ansible.builtin.copy:
+      src: files/dnsmasq.conf
+      dest: /etc/dnsmasq.conf
+      owner: root
+      group: root
+      mode: '0644'
+  - name: Restart dnsmasq
+    ansible.builtin.service:
+      name: dnsmasq
+      enabled: yes
+      state: restarted
   #- name: copy dnsmasq configuration
