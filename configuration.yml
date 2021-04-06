@@ -26,6 +26,10 @@
   vars:
     ansible_become: true
   tasks:
+  - name: Disable existing DNS
+    ansible.builin.service:
+      name: systemd-resolved
+      state: stopped
   - name: Install dnsmasq
     ansible.builtin.package:
       name: dnsmasq
