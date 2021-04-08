@@ -63,13 +63,6 @@
       owner: root
       group: root
       mode: '0644'
-  - name: Add upstream dns_servers
-    ansible.builtin.copy:
-      src: files/resolv.dnsmasq.conf
-      dest: /etc/resolv.dnsmasq.conf
-      owner: root
-      group: root
-      mode: '0644'
     notify: Restart dnsmasq
   handlers:
     - name: Restart dnsmasq
