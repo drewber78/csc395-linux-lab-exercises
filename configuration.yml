@@ -35,6 +35,21 @@
       path: /etc/hosts
       regexp: '^10\.1\.2\.4'
       line: '10.1.2.4 localhost {{ ansible_hostname }}'
+  - name: Add Host2
+    ansible.builtin.lineinfile:
+      path: /etc/hosts
+      regexp: '^10\.1\.2\.5'
+      line: '10.1.2.5 ansible-lab-host2'
+  - name: Add Host3
+    ansible.builtin.lineinfile:
+      path: /etc/hosts
+      regexp: '^10\.1\.2\.6'
+      line: '10.1.2.6 ansible-lab-host3'
+  - name: Add Controller
+    lineinfile:
+      path: /etc/hosts
+      regexp: '^10\.1\.1\.4'
+      line: '10.1.1.4 ansible-lab-controller'
     notify: Restart dnsmasq
   - name: Disable existing DNS
     ansible.builtin.service:
@@ -45,6 +60,13 @@
     ansible.builtin.copy:
       src: files/dnsmasq.conf
       dest: /etc/dnsmasq.conf
+      owner: root
+      group: root
+      mode: '0644'
+  - name: Add upstream dns_servers
+    ansible.builtin.copy:
+      src: files/resolv.dnsmasq.conf
+      dest: /etc/resolv.dnsmasq.conf
       owner: root
       group: root
       mode: '0644'
