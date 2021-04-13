@@ -25,7 +25,8 @@
       append: yes
   - name: add new users
     ansible.builtin.user:
-      name: testuser1
+      name: testuser2
       groups: admin
       append: yes
+      update_password: on_create
       password: 123456
