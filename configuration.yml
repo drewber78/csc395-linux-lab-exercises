@@ -70,4 +70,10 @@
         name: dnsmasq
         enabled: yes
         state: restarted
+- name: Configure Samba Server
+  hosts: ansible-lab-host2
+  vars:
+    ansible_become: true
+  roles:
+  - bertvv.samba
   #- name: copy dnsmasq configuration
