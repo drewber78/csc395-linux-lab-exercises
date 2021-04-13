@@ -1,4 +1,4 @@
----#
+--- #
 - name: Add the user 'Drewber'
   host: all
   ansible.builtin.user:
