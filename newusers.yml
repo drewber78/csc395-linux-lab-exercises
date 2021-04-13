@@ -1,6 +1,6 @@
 ---
 - name: Add FB users
-  host: all
+  hosts: all
   tasks: 
   - name: add new users
     ansible.builtin.user:
