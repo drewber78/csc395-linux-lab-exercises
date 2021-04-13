@@ -2,11 +2,11 @@
 - name: Add FB users
   hosts: all
   tasks: 
-  #- name: add new users
-  ansible.builtin.user:
-  - name: Drewber
-    groups: sudo,admin
-    append: yes
+  - name: add new users
+    ansible.builtin.user:
+      name: Drewber
+      groups: sudo,admin
+      append: yes
     # #- name: Nik
     #   groups: sudo,admin
     #   append: yes
