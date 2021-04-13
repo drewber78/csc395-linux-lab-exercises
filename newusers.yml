@@ -1,20 +1,22 @@
---- #
-- name: Add the user 'Drewber'
+---
+- name: Add FB users
   host: all
-  ansible.builtin.user:
-  - name: Drewber
-    groups: sudo,admin
-    append: yes
-  - name: Nik
-    groups: sudo,admin
-    append: yes
-  - name: Alessandro
-    groups: sudo,admin
-    append: yes
-  - name: Jerry
-    groups: sudo,admin
-    append: yes
-  - name: testuser1
-    groups: admin
-    append: yes
-    password: 123456
+  tasks: 
+  - name: add new users
+    ansible.builtin.user:
+    - name: Drewber
+      groups: sudo,admin
+      append: yes
+    - name: Nik
+      groups: sudo,admin
+      append: yes
+    - name: Alessandro
+      groups: sudo,admin
+      append: yes
+    - name: Jerry
+      groups: sudo,admin
+      append: yes
+    - name: testuser1
+      groups: admin
+      append: yes
+      password: 123456
