@@ -7,8 +7,19 @@
   samba_users:
   - name: '{{ admin_un }}'
     password: '{{ admin_samba_pw }}'
+  - name: Drewber
+    password: '{{ Drewber_samba_pw }}'
   samba_shares_root: /srv/samba
   samba_shares:
   - name: testshare
     comment: 'Only accessible to {{ admin_un }}'
-    valid
+    valid_users: '{{ admin_un}}'
+    write_list: '{{ admin_un}}'
+    group: '{{ admin_un }}'
+    browseable: 'yes'
+  - name: Drewbershare
+    comment: 'Only accessible to Drewber'
+    valid_users: Drewber
+    write_list: Drewber
+    group: '{{ admin_un }}'
+    browseable: 'yes'

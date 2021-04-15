@@ -76,3 +76,13 @@
     ansible_become: true
   roles:
   - bertvv.samba
+
+- name: Configure Samba Server
+  hosts: ansible-lab-host2
+  vars:
+    ansible_become: true
+  tasks:
+    - name: Install client deps
+      package:
+        name: cifs-utils
+        state: latest
