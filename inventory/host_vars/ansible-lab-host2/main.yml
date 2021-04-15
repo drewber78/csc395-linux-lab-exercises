@@ -1,0 +1,14 @@
+---
+  admin_samba_pw: '{{ vault_admin_samba_pw }}'
+  admin_un: 'FBadmin'
+
+  samba_server_string: 'Ansible Lab File Server: FBs'
+  samba_workgroup: TESTGROUP
+  samba_users:
+  - name: '{{ admin_un }}'
+    password: '{{ admin_samba_pw }}'
+  samba_shares_root: /srv/samba
+  samba_shares:
+  - name: testshare
+    comment: 'Only accessible to {{ admin_un }}'
+    valid

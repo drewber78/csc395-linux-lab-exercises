@@ -76,4 +76,3 @@
     ansible_become: true
   roles:
   - bertvv.samba
-  #- name: copy dnsmasq configuration
