@@ -134,7 +134,7 @@
     azure.azcollection.azure_rm_virtualmachine:
       name: '{{ host_vm_name1 }}'
       state: present
-      # restarted: yes
+      restarted: yes
       resource_group: '{{ resourcegroup_name }}'
       virtual_network_name: '{{ network_name }}'
       subnet_name: '{{ host_subnet_name }}'
@@ -152,7 +152,7 @@
     azure.azcollection.azure_rm_virtualmachine:
       name: '{{ host_vm_name2 }}'
       state: present
-      # restarted: yes
+      restarted: yes
       resource_group: '{{ resourcegroup_name }}'
       virtual_network_name: '{{ network_name }}'
       subnet_name: '{{ host_subnet_name }}'
@@ -170,7 +170,7 @@
     azure.azcollection.azure_rm_virtualmachine:
       name: '{{ host_vm_name3 }}'
       state: present
-      # restarted: yes
+      restarted: yes
       resource_group: '{{ resourcegroup_name }}'
       virtual_network_name: '{{ network_name }}'
       subnet_name: '{{ host_subnet_name }}'
