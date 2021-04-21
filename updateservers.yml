@@ -1,8 +1,4 @@
 ---
-
-# - name: run command update and upgrade
-#   ansible.netcommon.cli_command:
-#     command: 
 - name: Update and upgrade hosts
   hosts: 
       ansible-lab-controller:
