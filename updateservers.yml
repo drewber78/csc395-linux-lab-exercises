@@ -25,7 +25,7 @@
   - name: Reboot the Ubuntu Server
     reboot:
       msg: "Reboot initiated by Ansible due to kernel updates"
-      coonnect_timeout: 5
+      connect_timeout: 5
       reboot_timeout: 300
       pre_reboot_delay: 0
       post_reboot_delay: 30
