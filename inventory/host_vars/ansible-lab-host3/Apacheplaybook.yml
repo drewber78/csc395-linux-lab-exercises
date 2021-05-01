@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: ansible_lab_hosts
   become: true
   vars_files:
     - vars/default.yml
@@ -28,12 +28,12 @@
 
     - name: Copy index test page
       template:
-        src: "files/index.html.j2"
+        src: "files/index.html"
         dest: "/var/www/{{ http_host }}/index.html"
 
     - name: Set up Apache virtualhost
       template:
-        src: "files/apache.conf.j2"
+        src: "files/apache.conf"
         dest: "/etc/apache2/sites-available/{{ http_conf }}"
 
     - name: Enable new site
