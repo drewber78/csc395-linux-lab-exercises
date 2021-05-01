@@ -50,6 +50,12 @@
         rule: allow
         port: "{{ http_port }}"
         proto: tcp
+        
+    - name: "UFW - Allow HTTPS on port {{ https_port }}"
+      ufw:
+        rule: allow
+        port: "{{ https_port }}"
+        proto: tcp
 
   handlers:
     - name: Reload Apache
