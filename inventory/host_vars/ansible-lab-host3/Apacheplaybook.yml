@@ -1,5 +1,5 @@
 ---
-- hosts: ansible-lab-host3
+- hosts: all
   become: true
   vars_files:
     - vars/default.yml
