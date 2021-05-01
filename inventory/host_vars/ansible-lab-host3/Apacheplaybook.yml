@@ -33,7 +33,7 @@
 
     - name: Set up Apache virtualhost
       template:
-        src: "files/apache.conf"
+        src: "files/FBsapache.conf"
         dest: "/etc/apache2/sites-available/{{ http_conf }}"
 
     - name: Enable new site
