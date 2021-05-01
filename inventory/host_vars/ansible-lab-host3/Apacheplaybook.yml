@@ -3,6 +3,7 @@
   become: true
   vars_files:
     - vars/default.yml
+  # - ../../inventory.yml
 
   tasks:
     - name: Install prerequisites

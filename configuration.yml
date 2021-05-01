@@ -70,6 +70,7 @@
         name: dnsmasq
         enabled: yes
         state: restarted
+        
 - name: Configure Samba Server
   hosts: ansible-lab-host2
   vars:
