@@ -1,7 +1,7 @@
 ---
 app_user: "Drewber"
-http_host: "FBsUbuntuwebsite"
-http_conf: "your_domain.conf"
+http_host: "fbsubuntuwebsite"
+http_conf: "FBsapache.conf"
 http_port: "80"
 https_port: "443"
 disable_default: true
