@@ -1,0 +1,7 @@
+---
+app_user: "FBadmin"
+http_host: "FBsUbuntuwebsite"
+http_conf: "your_domain.conf"
+http_port: "80"
+https_port: "443"
+disable_default: true
