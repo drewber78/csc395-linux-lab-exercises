@@ -78,8 +78,9 @@
   roles:
   - bertvv.samba
 
-- name: Configure Samba Server
-  hosts: ansible-lab-host2
+- name: Configure Samba client
+  hosts: ansible-lab-host3
+  tags: Samba
   vars:
     ansible_become: true
   tasks:
@@ -87,3 +88,32 @@
       package:
         name: cifs-utils
         state: latest
+    - name: Create credential file
+      template:
+        src: ./files/.smbpasswd
+        dest: /home/{{ admin_un }}./files/.smbpasswd
+        owner: '{{ admin_un }}'
+        group: '{{ admin_un }}'
+        mode: '0600'
+    - name: Add share mount
+      mount:
+        src: //10.1.2.5/srv/samba/testshare
+        path: /mnt/smbshare
+        fstype: "cifs"
+        opts: credentials=/home/{{ admin_un }}/.smbpasswd
+        state: "mounted"
+    - name: Set mount as writeable
+      file:
+        path: /mnt/smbshare
+        state: directory
+        mode: '0777'
+
+- name: Install OpenVPN
+  hosts: ansible-lab-controller
+  gather_facts: true
+  vars:
+    ansible_become: true
+    openvpn_server_hostname: 40.118.166.56
+  roles:
+    - role: ansible-role-openvpn
+      clients: client1
