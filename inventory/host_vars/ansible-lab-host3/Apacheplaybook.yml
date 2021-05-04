@@ -2,7 +2,7 @@
 - hosts: ansible_lab_hosts
   become: true
   vars_files:
-    - ~/home/csc395-linux-lab-exercises/inventory/host_vars/ansible-lab-host3/vars/default.yml
+    - vars/default.yml
   # - ../../inventory.yml
 
   tasks:
