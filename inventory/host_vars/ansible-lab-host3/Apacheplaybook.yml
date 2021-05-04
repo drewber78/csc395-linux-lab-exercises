@@ -2,7 +2,7 @@
 - hosts: ansible_lab_hosts
   become: true
   vars_files:
-    - default.yml
+    - vars/default.yml
   # - ../../inventory.yml
 
   tasks:
