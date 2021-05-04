@@ -4,4 +4,5 @@ http_host: "fbsubuntuwebsite"
 http_conf: "FBsapache.conf"
 http_port: "80"
 https_port: "443"
+ssh_port: "22"
 disable_default: true

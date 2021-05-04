@@ -2,7 +2,7 @@
 - hosts: ansible_lab_hosts
   become: true
   vars_files:
-    - vars/default.yml
+    - inventory/host_vars/ansible-lab-host3/vars/default.yml
   # - ../../inventory.yml
 
   tasks:
@@ -56,6 +56,11 @@
       ufw:
         rule: allow
         port: "{{ https_port }}"
+        proto: tcp
+    - name: "UFW - Allow SSH on port {{ ssh_port }}"
+      ufw:
+        rule: allow
+        port: "{{ ssh_port }}"
         proto: tcp
 
   handlers:
