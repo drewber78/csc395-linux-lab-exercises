@@ -57,6 +57,7 @@
         rule: allow
         port: "{{ https_port }}"
         proto: tcp
+        
     - name: "UFW - Allow SSH on port {{ ssh_port }}"
       ufw:
         rule: allow
