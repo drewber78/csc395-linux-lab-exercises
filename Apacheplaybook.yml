@@ -43,23 +43,23 @@
       when: disable_default
       notify: Reload Apache
 
-    - name: "UFW - Allow HTTP on port {{ http_port }}"
-      ufw:
-        rule: allow
-        port: "{{ http_port }}"
-        proto: tcp
+    # - name: "UFW - Allow HTTP on port {{ http_port }}"
+    #   ufw:
+    #     rule: allow
+    #     port: "{{ http_port }}"
+    #     proto: tcp
 
-    - name: "UFW - Allow HTTPS on port {{ https_port }}"
-      ufw:
-        rule: allow
-        port: "{{ https_port }}"
-        proto: tcp
+    # - name: "UFW - Allow HTTPS on port {{ https_port }}"
+    #   ufw:
+    #     rule: allow
+    #     port: "{{ https_port }}"
+    #     proto: tcp
         
-    - name: "UFW - Allow SSH on port {{ ssh_port }}"
-      ufw:
-        rule: allow
-        port: "{{ ssh_port }}"
-        proto: tcp
+    # - name: "UFW - Allow SSH on port {{ ssh_port }}"
+    #   ufw:
+    #     rule: allow
+    #     port: "{{ ssh_port }}"
+    #     proto: tcp
 
   handlers:
   - name: Reload Apache
