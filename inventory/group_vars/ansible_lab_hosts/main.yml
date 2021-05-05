@@ -1,0 +1,3 @@
+---
+admin_samba_pw: '{{ vault_admin_samba_pw }}'
+admin_un: 'FBadmin'

@@ -1,6 +1,4 @@
 ---
-  admin_samba_pw: '{{ vault_admin_samba_pw }}'
-  admin_un: 'FBadmin'
 
   samba_server_string: 'Ansible Lab File Server: FBs'
   samba_workgroup: TESTGROUP
