@@ -45,7 +45,7 @@
         access: Allow
         priority: 102
         direction: Inbound
-      - name: 'AllowAllVPN_TCP'
+      - name: 'AllowAllVPN_TCP2'
         protocol: Tcp
         source_address_prefix: 0.0.0.0/0
         destination_port_range: 943
