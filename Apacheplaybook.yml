@@ -1,11 +1,13 @@
 ---
 - hosts: ansible_lab_hosts
   become: true
-  include_vars:
-    file: Apachevars.yml
-  # - ../../inventory.yml
 
   tasks:
+    - name: Include only files matching Apachevars.yaml
+      include_vars:
+        dir: vars
+        files_matching: Apachevars.yaml
+        
     - name: Install prerequisites
       apt: 
         name: "{{ item }}"
