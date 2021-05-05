@@ -7,37 +7,37 @@
       include_vars:
         dir: vars
         files_matching: Apachevars.yaml
-        
+
     - name: Install prerequisites
       apt: 
         name: "{{ item }}"
-      update_cache: yes 
-      state: latest 
-      force_apt_get: yes
+        update_cache: yes 
+        state: latest 
+        force_apt_get: yes
       loop: [ 'aptitude' ]
 
     - name: Install Apache
       apt: 
         name: apache2
-      update_cache: yes 
-      state: latest
+        update_cache: yes 
+        state: latest
 
     - name: Create document root
       file:
-      path: "/var/www/{{ http_host }}"
-      state: directory
-      owner: "{{ app_user }}"
-      mode: '0755'
+        path: "/var/www/{{ http_host }}"
+        state: directory
+        owner: "{{ app_user }}"
+        mode: '0755'
 
     - name: Copy index test page
       template:
-      src: "files/index.html.j2"
-      dest: "/var/www/{{ http_host }}/index.html"
+        src: "files/index.html.j2"
+        dest: "/var/www/{{ http_host }}/index.html"
 
     - name: Set up Apache virtualhost
       template:
-      src: "files/FBsapache.conf.j2"
-      dest: "/etc/apache2/sites-available/{{ http_conf }}"
+        src: "files/FBsapache.conf.j2"
+        dest: "/etc/apache2/sites-available/{{ http_conf }}"
 
     - name: Enable new site
       shell: /usr/sbin/a2ensite {{ http_conf }}
@@ -50,21 +50,21 @@
 
     - name: "UFW - Allow HTTP on port {{ http_port }}"
       ufw:
-      rule: allow
-      port: "{{ http_port }}"
-      proto: tcp
+        rule: allow
+        port: "{{ http_port }}"
+        proto: tcp
 
     - name: "UFW - Allow HTTPS on port {{ https_port }}"
       ufw:
-      rule: allow
-      port: "{{ https_port }}"
-      proto: tcp
+        rule: allow
+        port: "{{ https_port }}"
+        proto: tcp
         
     - name: "UFW - Allow SSH on port {{ ssh_port }}"
       ufw:
-      rule: allow
-      port: "{{ ssh_port }}"
-      proto: tcp
+        rule: allow
+        port: "{{ ssh_port }}"
+        proto: tcp
 
   handlers:
   - name: Reload Apache
