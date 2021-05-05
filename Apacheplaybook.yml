@@ -1,8 +1,7 @@
 ---
 - hosts: ansible_lab_hosts
   become: true
-  vars_files:
-    - /inventory/host_vars/ansible-lab-host3/vars/default.yml
+  vars_files_locs: ['inventory/host_vars/ansible-lab-host3/vars/default.yml']
   # - ../../inventory.yml
 
   tasks:
