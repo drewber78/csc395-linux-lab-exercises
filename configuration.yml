@@ -98,7 +98,7 @@
       mode: '0600'
   - name: Add share mount
     mount:
-      src: //10.1.2.5/srv/samba/testshare
+      src: //10.1.2.5/testshare
       path: /mnt/smbshare
       fstype: "cifs"
       opts: credentials=/home/{{ admin_un }}/.smbpasswd
