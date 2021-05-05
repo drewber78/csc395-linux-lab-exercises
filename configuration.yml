@@ -92,7 +92,7 @@
   - name: Create credential file
     template:
       src: ./files/.smbpasswd
-      dest: /home/{{ admin_un }}/files/.smbpasswd
+      dest: /home/{{ admin_un }}/.smbpasswd
       owner: '{{ admin_un }}'
       group: '{{ admin_un }}'
       mode: '0600'
