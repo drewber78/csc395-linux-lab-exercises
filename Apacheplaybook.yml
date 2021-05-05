@@ -3,11 +3,6 @@
   become: true
 
   tasks:
-    - name: Include only files matching Apachevars.yaml
-      include_vars:
-        dir: vars
-        files_matching: Apachevars.yaml
-
     - name: Install prerequisites
       apt: 
         name: "{{ item }}"
